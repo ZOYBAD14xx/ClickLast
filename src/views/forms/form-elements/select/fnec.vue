@@ -1,6 +1,5 @@
 
 <template>
-
   <div>
     <vs-table pagination max-items="7" search :data="users">
       <template slot="thead">
@@ -12,7 +11,7 @@
         <vs-th sort-key="id">Vat(%)</vs-th>
         <vs-th sort-key="id">Shipping cost</vs-th>
         <vs-th sort-key="id">Total actual cost</vs-th>
-
+       
       </template>
       <template slot-scope="{ data }">
         <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
@@ -132,42 +131,42 @@
             <vs-popup title="Edit product details" :active.sync="popupActive3">
           <span>product name</span>
             <vs-input
-
+               
               class="inputx mb-3"
               placeholder="Bottle"
               v-model="value1"
             />
             <span>Model</span>
             <vs-input
-
+               
               class="inputx mb-3"
               placeholder="model2"
               v-model="value2"
             />
             <span>Color</span>
              <vs-input
-
+              
               class="inputx mb-3"
               placeholder=" #ffffff"
               v-model="value3"
             />
             <span>Material</span>
              <vs-input
-
+              
               class="inputx mb-3"
               placeholder="plastic"
               v-model="value4"
             />
             <span>Size</span>
              <vs-input
-
+               
               class="inputx mb-3"
               placeholder="12x30cm"
               v-model="value5"
             />
             <span>Amount</span>
              <vs-input
-
+              
               class="inputx mb-3"
               placeholder="20"
               v-model="value6"
@@ -278,6 +277,6 @@ export default {
     };
   },
 };
-</script>
+</script>      
 <style>
 </style>
