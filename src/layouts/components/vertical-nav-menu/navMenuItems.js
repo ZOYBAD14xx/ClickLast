@@ -120,22 +120,22 @@ export default [
                 icon: 'LayoutIcon',
                 i18n: 'CFO',
                 submenu: [{
-                        url: '/forms/form-elements/select/cfodashboard',
-                        name: 'Vuesax',
-                        slug: 'grid-vuesax',
-                        i18n: 'Dashboard'
-                    },
-                    {
-                        url: '/forms/form-elements/select/artapprove',
-                        name: 'artapprove',
-                        i18n: 'Artwork Approve'
-                    },
-                    {
-                      url: '/forms/form-elements/select/fiapprove',
-                      name: 'financeapprove',
-                      i18n: 'Finance Approve'
-                  }
-                ]
+                  url: '/forms/form-elements/select/cfodashboard',
+                  name: 'Vuesax',
+                  slug: 'grid-vuesax',
+                  i18n: 'Dashboard'
+              },
+              {
+                  url: '/forms/form-elements/select/artapprove',
+                  name: 'artapprove',
+                  i18n: 'Artwork Approve'
+              },
+              {
+                url: '/forms/form-elements/select/fiapprove',
+                name: 'financeapprove',
+                i18n: 'Finance Approve'
+            }
+          ]
             },
             {
                 url: null,
@@ -427,21 +427,22 @@ export default [
 
             },
             {
-                url: null,
-                name: 'Support',
-                icon: 'ShoppingCartIcon',
-                i18n: 'Supplier manager',
-                submenu: [{
-                  url: '/apps/eCommerce/shop',
-                  slug: 'ecommerce-shop',
-                  i18n: 'Supplier list'
-                }, {
-                    url: '/forms/form-elements/select/createinvoice',
-                    name: 'createinvoice',
-                    slug: 'component-button-group',
-                    i18n: 'Create invoice'
-                }]
-            }
+              url: null,
+              name: 'Support',
+              icon: 'ShoppingCartIcon',
+              i18n: 'Supplier manager',
+              submenu: [{
+                url: '/apps/eCommerce/shop',
+                slug: 'ecommerce-shop',
+                i18n: 'Supplier list'
+              },
+              //  {
+              //     url: '/forms/form-elements/select/createinvoice',
+              //     name: 'createinvoice',
+              //     slug: 'component-button-group',
+              //     i18n: 'Create invoice'
+              ]
+          }
         ]
     },
 

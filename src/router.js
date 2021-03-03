@@ -774,20 +774,10 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/forms/form-elements/select/createinvoice',
-                    name: 'createinvoice',
-                    component: () =>
-                        import ('./views/forms/form-elements/select/createinvoice.vue'),
-                    meta: {
-
-                        rule: 'editor'
-                    }
-                },
-                {
-                    path: '/forms/form-elements/select/supplierlist',
+                    path: '/forms/form-elements/select/Supplierlist',
                     name: 'supplierlist',
                     component: () =>
-                        import ('./views/forms/form-elements/select/supplierlist.vue'),
+                        import ('./views/forms/form-elements/select/Supplierlist.vue'),
                     meta: {
 
                         rule: 'editor'
