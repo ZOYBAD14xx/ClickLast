@@ -64,7 +64,7 @@
     </vs-table>
     <div class="flex justify-between mt-10">
         <vs-button class="" text-color="#ffffff" @click="$router.go(-1)" type="filled">Back</vs-button>
-        <vs-button class="" text-color="#ffffff" @click="$router.push('/forms/form-elements/select/fiapprove')" type="filled">Approve</vs-button>
+        <vs-button class="" text-color="#ffffff" @click="$router.push('/forms/form-elements/select/Projectfiapprove')" type="filled">Approve</vs-button>
   </div>
   </div>
 </vx-card>

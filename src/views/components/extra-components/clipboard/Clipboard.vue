@@ -93,7 +93,7 @@
       </vs-tab>
     </vs-tabs>
   </div>
-  <vs-button @click="$router.push('/apps/calendar/vue-simple-calendar')" type="filled" text-color="#ffffff" >Create Quotation</vs-button>
+  <vs-button @click="$router.push( '/forms/form-elements/select/createquotation')" type="filled" text-color="#ffffff" >Create Quotation</vs-button>
  </div>
  </template>
 

@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Router from 'vue-router'
 import auth from '@/auth/authService'
@@ -235,10 +234,20 @@ const router = new Router({
                     }
                 },
                 {
-                  path: '/forms/form-elements/select/fiapprove',
+                    path: '/forms/form-elements/select/fiapprove',
+                    name: 'financeapprove',
+                    component: () =>
+                        import ('@/views/ui-elements/data-list/list-view/DataListListView2.vue'),
+                    meta: {
+                        rule: 'editor'
+                    }
+                },
+
+                {
+                  path: '/forms/form-elements/select/Projectfiapprove',
                   name: 'financeapprove',
                   component: () =>
-                      import ('@/views/ui-elements/data-list/list-view/DataListListView2.vue'),
+                      import ('@/views/ui-elements/data-list/list-view/finaceProject.vue'),
                   meta: {
                       rule: 'editor'
                   }
@@ -288,11 +297,7 @@ const router = new Router({
                     component: () =>
                         import ('./views/ui-elements/colors/Colors.vue'),
                     meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'Colors', active: true }
-                        ],
-                        pageTitle: 'Colors',
+
                         rule: 'editor'
                     }
                 },
@@ -315,12 +320,6 @@ const router = new Router({
                     component: () =>
                         import ('./views/ui-elements/card/CardStatistics.vue'),
                     meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'Card' },
-                            { title: 'Statistics Cards', active: true }
-                        ],
-                        pageTitle: 'Statistics Card',
                         rule: 'editor'
                     }
                 },
@@ -672,28 +671,28 @@ const router = new Router({
                     }
                 },
                 {
-                  path: '/components/tabs/select',
-                  name: 'component-tabs-select',
-                  component: () =>
-                      import ('@/views/components/vuesax/tabs/TabsAlignments.vue'),
-                  meta: {
-                      rule: 'editor'
-                  }
-              },
-              {
-                path: '/components/tabs/select/2',
-                name: 'component-tabs-select2',
-                component: () =>
-                  import ('@/views/ui-elements/data-list/thumb-view/Selectsupplier.vue'),
-              meta: {
-                  rule: 'editor'
-              }
-            },
-            {
-              path: '/forms/form-elements/select/fiapprove',
-              name: 'financeapprove',
+                    path: '/components/tabs/select',
+                    name: 'component-tabs-select',
+                    component: () =>
+                        import ('@/views/components/vuesax/tabs/TabsAlignments.vue'),
+                    meta: {
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/components/tabs/select/2',
+                    name: 'component-tabs-select2',
+                    component: () =>
+                        import ('@/views/ui-elements/data-list/thumb-view/Selectsupplier.vue'),
+                    meta: {
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/fiapprove',
+                    name: 'financeapprove',
 
-          },
+                },
 
                 {
                     path: '/components/tooltip',
@@ -754,6 +753,26 @@ const router = new Router({
                     }
                 },
                 {
+                  path: '/cfo/APD',
+                  name: 'APD',
+                  component: () =>
+                      import ('./views/forms/APD.vue'),
+                  meta: {
+                      pageTitle: '',
+                      rule: 'editor'
+                  }
+              },
+                {
+                  path: '/Design/APD',
+                  name: 'APDD',
+                  component: () =>
+                      import ('./views/forms/APDD.vue'),
+                  meta: {
+                      pageTitle: '',
+                      rule: 'editor'
+                  }
+              },
+                {
                     path: '',
                     name: 'form-estimation',
                     component: () =>
@@ -764,20 +783,20 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '',
-                    name: 'form-estimation',
+                    path: '/forms/form-elements/select/createinvoice',
+                    name: 'createinvoice',
                     component: () =>
-                        import ('./views/forms/form-elements/select/cfoapprove.vue'),
+                        import ('./views/forms/form-elements/select/createinvoice.vue'),
                     meta: {
 
                         rule: 'editor'
                     }
                 },
                 {
-                    path: '/forms/form-elements/select/Supplierlist',
+                    path: '/forms/form-elements/select/supplierlist',
                     name: 'supplierlist',
                     component: () =>
-                        import ('./views/forms/form-elements/select/Supplierlist.vue'),
+                        import ('./views/forms/form-elements/select/supplierlist.vue'),
                     meta: {
 
                         rule: 'editor'
@@ -801,6 +820,39 @@ const router = new Router({
                         import ('./views/forms/form-elements/select/deliveryproduct.vue'),
                     meta: {
                         pageTitle: 'Delivery Product',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/createquotation',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/createquotation.vue'),
+                    meta: {
+                        pageTitle: 'Create Quotation',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/createreqpay',
+
+                    name: 'reqpay',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/createreqpay.vue'),
+                    meta: {
+                        pageTitle: 'Create Request Payment',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/createreqpayfirst',
+
+                    name: 'reqpayf',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/createreqpayfirst.vue'),
+                    meta: {
+                        pageTitle: 'Select project',
                         rule: 'editor'
                     }
                 },
@@ -1283,12 +1335,7 @@ const router = new Router({
                     component: () =>
                         import ('@/views/components/extra-components/access-control/AccessControl.vue'),
                     meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'Extensions' },
-                            { title: 'Access Control', active: true }
-                        ],
-                        pageTitle: 'Access Control',
+
                         rule: 'editor'
                     }
                 },

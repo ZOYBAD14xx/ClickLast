@@ -5,7 +5,7 @@
         <div><div>
       <vs-table pagination max-items="7" search :data="users">
            <template slot="header">
-          <vs-button @click="popupActive2=true">New Customer</vs-button>
+          <vs-button  text-color="#ffffff" @click="popupActive2=true">New Customer</vs-button>
           <vs-popup classContent="popup-example" title="New customer" :active.sync="popupActive2" >
             
       <vs-input class="inputx mb-3" placeholder="Customer name" v-model="value1" />

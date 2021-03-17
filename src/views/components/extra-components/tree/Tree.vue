@@ -88,7 +88,7 @@
         </vs-td>
         <vs-td :data="data[indextr].status">
                  <vs-chip color="success">
-                 Paid
+                 Approved
                  </vs-chip>
           {{ data[indextr].status }}
         </vs-td>
