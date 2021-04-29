@@ -46,7 +46,7 @@
                  </vs-chip>
           {{ data[indextr].status }}
         </vs-td>
-          <vs-button type="line">Detail</vs-button>
+  <vs-button  @click="$router.push('/forms/form-elements/select/proreqpay')" type="line">Detail</vs-button> 
       </vs-tr>
     </template>
   </vs-table>
@@ -92,7 +92,7 @@
                  </vs-chip>
           {{ data[indextr].status }}
         </vs-td>
-          <vs-button type="line">Detail</vs-button>
+          <vs-button  @click="$router.push('/forms/form-elements/select/proreqpay')" type="line">Detail</vs-button> 
       </vs-tr>
     </template>
   </vs-table></div>

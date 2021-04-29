@@ -157,7 +157,7 @@
         <vs-button text-color="#ffffff" color="warning" class="mr-3 mb-2" @click="popupActive=true" >Reject</vs-button>
         </div>
         <div>
-        <vs-button class="mr-3 mb-2" text-color="#ffffff">Submit</vs-button>
+        <vs-button class="mr-3 mb-2" text-color="#ffffff" @click="$router.push('/forms/form-elements/select/artapprove')">Submit</vs-button>
       </div>
       </div>
 

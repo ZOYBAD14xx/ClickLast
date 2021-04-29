@@ -1,22 +1,18 @@
 
 <template>
-
- <div>
   <div class="mt-5">
     
-    <vs-tabs alignment="fixed">
-      <vs-tab label="Invoice">
-        <div><div>
       <vs-table pagination max-items="7" search :data="users">
 
     <template slot="thead">
-      <vs-th sort-key="email">ID</vs-th>
-    <vs-th sort-key="id">Project</vs-th>
+      <vs-th sort-key="email">No</vs-th>
+      <vs-th sort-key="id">Project</vs-th>
       <vs-th sort-key="username">Customer name</vs-th>  
       <vs-th sort-key="website">Office number</vs-th>
       <vs-th sort-key="id">Contact person</vs-th>
       <vs-th sort-key="id">Contact number</vs-th>
       <vs-th sort-key="id">Email</vs-th>
+       <vs-th sort-key="id">Paid Type</vs-th>
  
     </template>
     <template slot-scope="{data}">
@@ -44,57 +40,14 @@
           <vs-td :data="data[indextr].email">
           {{ data[indextr].email }}
         </vs-td>
-        <vs-button type="line">Detail</vs-button>
+           <vs-td :data="data[indextr].pay">
+          {{ data[indextr].pay }}
+        </vs-td>
+          <vs-button type="line" @click="$router.push('/forms/form-elements/select/printquotation')">Print</vs-button>
       </vs-tr>
     </template>
   </vs-table>
-   </div></div>
-      </vs-tab>
-      <vs-tab label="Invoice already">
-        <div> <vs-table   pagination max-items="7" search :data="users">
-
-     <template slot="thead">
-      <vs-th sort-key="email">ID</vs-th>
-      <vs-th sort-key="id">Project</vs-th>
-      <vs-th sort-key="username">Customer name</vs-th>
-      <vs-th sort-key="website">Office number</vs-th>
-      <vs-th sort-key="id">Contact person</vs-th>
-      <vs-th sort-key="id">Contact number</vs-th>
-      <vs-th sort-key="id">Email</vs-th>
- 
-    </template>
-    <template slot-scope="{data}">
-      <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
-
-        <vs-td :data="data[indextr].id">
-          {{ data[indextr].id }}
-        </vs-td>
-          <vs-td :data="data[indextr].project">
-          {{ data[indextr].project }}
-        </vs-td>
-         <vs-td :data="data[indextr].attendto">
-          {{ data[indextr].attendto }}
-        </vs-td>
-        <vs-td :data="data[indextr].officenumber">
-          {{ data[indextr].officenumber}}
-        </vs-td>
-
-        <vs-td :data="data[indextr].contactperson">
-          {{ data[indextr].contactperson }}
-        </vs-td>
-        <vs-td :data="data[indextr].tel">
-          {{ data[indextr].tel }}
-        </vs-td>
-          <vs-td :data="data[indextr].email">
-          {{ data[indextr].email }}
-        </vs-td>
-        <vs-button type="line">Detail</vs-button>
-      </vs-tr>
-    </template>
-  </vs-table></div>
-      </vs-tab>
-    </vs-tabs>
-  </div>
+ <vs-button @click="$router.push( '/forms/form-elements/select/invoicecreate')" type="filled" text-color="#ffffff" >Create Invoice from Quotation</vs-button>
  </div>
  </template>
 
@@ -120,6 +73,7 @@ export default {
           "contactperson": "MRX",
           "tel": "02058788888",
           "email": "mrclickx@gmail.la",
+          "pay":"1/3",
           "project": "CLICK PROJECT", 
         },
        {
@@ -130,6 +84,7 @@ export default {
           "contactperson": "Sincersde@april.biz",
           "tel": "02058778888",
           "email": "mrclickx@gmail.la",
+           "pay":"2/3",
           "project": "CLICKX PROJECT", 
         }, {
           "id": 3,
@@ -139,6 +94,7 @@ export default {
           "contactperson": "Sincere@april.biz",
           "tel": "02058788888",
           "email": "mrclickx@gmail.la",
+           "pay":"1/2",
           "project": "CLICK PROJECT", 
         }, {
           "id": 4,
@@ -148,6 +104,7 @@ export default {
           "contactperson": "Sincere@april.biz",
           "tel": "02058788888",
           "email": "mrclickx@gmail.la",
+           "pay":"3/3",
           "project": "CLICK PROJECT", 
         }, {
           "id": 5,
@@ -157,6 +114,7 @@ export default {
           "contactperson": "Sincere@april.biz",
           "tel": "02058788888",
           "email": "mrclickx@gmail.la",
+           "pay":"1/1",
           "project": "CLICK PROJECT", 
         },
       ]

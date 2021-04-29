@@ -5,20 +5,19 @@
         <div><div>
       <vs-table pagination max-items="7" search :data="users">
            <template slot="header">
-          <vs-button  text-color="#ffffff" @click="popupActive2=true">New Customer</vs-button>
-          <vs-popup classContent="popup-example" title="New customer" :active.sync="popupActive2" >
+           <vs-button   style="color:white" @click="popupActive=true">New Customer</vs-button>
+        <vs-popup fullscreen title="New customer" :active.sync="popupActive">
             
-      <vs-input class="inputx mb-3" placeholder="Customer name" v-model="value1" />
-      <vs-input  class="inputx mb-3" placeholder="Address" v-model="value2" />
-       <vs-input class="inputx mb-3" placeholder="Office number" v-model="value3" />
-      <vs-input  class="inputx mb-3" placeholder="Contact person" v-model="value4" />
-       <vs-input class="inputx mb-3" placeholder="Contact number" v-model="value5" />
-      <vs-input  class="inputx mb-3" placeholder="email" v-model="value6" />
-       <vs-input class="inputx mb-3" placeholder="website" v-model="value7" />
-      <vs-input  class="inputx mb-3" placeholder="Request received " v-model="value8" />
-       <vs-input class="inputx mb-3" placeholder="Delivery date" v-model="value9" />
+      <vs-input style="width:1250px" class="inputx mb-3" placeholder="Customer name" v-model="value1" />
+      <vs-input style="width:1250px" class="inputx mb-3" placeholder="Address" v-model="value2" />
+       <vs-input style="width:1250px" class="inputx mb-3" placeholder="Office number" v-model="value3" />
+      <vs-input style="width:1250px"  class="inputx mb-3" placeholder="Contact person" v-model="value4" />
+       <vs-input style="width:1250px" class="inputx mb-3" placeholder="Contact number" v-model="value5" />
+      <vs-input style="width:1250px" class="inputx mb-3" placeholder="email" v-model="value6" />
+       <vs-input style="width:1250px" class="inputx mb-3" placeholder="website" v-model="value7" />
+      <vs-input style="width:1250px" class="inputx mb-3" placeholder="Delivery date" v-model="value9" />
      
-      <vs-button>Submit</vs-button>
+      <vs-button style="margin-left:500px" >Submit</vs-button>
           </vs-popup>
         </template>
     <template slot="thead">
@@ -83,7 +82,7 @@ export default {
     return {
       value1: '',
       value2: '',
-      popupActive2: false,
+      popupActive: false,
       selected: [],
       'tableList': [
         'vs-th: Component',

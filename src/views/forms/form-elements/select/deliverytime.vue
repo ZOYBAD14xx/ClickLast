@@ -43,6 +43,8 @@
         </div>
       </vs-tab>
     </vs-tabs>
+     <br><br><br><br><br><br><br><br><br> 
+              <vs-button     text-color="#ffffff" @click="$router.go(-1)" type="filled">Back</vs-button>
   </div>
 </template>
 

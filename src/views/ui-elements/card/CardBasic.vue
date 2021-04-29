@@ -10,14 +10,13 @@
        
         </template>
     <template slot="thead">
-       <vs-th sort-key="email">ID</vs-th>
+       <vs-th sort-key="email">No</vs-th>
       <vs-th sort-key="username">Project name</vs-th>
       <vs-th sort-key="website">Customer name</vs-th>
-      <vs-th sort-key="id">Contact Person</vs-th>
-      <vs-th sort-key="id">Contact Number</vs-th>
-       <vs-th sort-key="id">Service Type</vs-th>
-       <vs-th sort-key="id">Register date</vs-th>
-   
+      <vs-th sort-key="id">Service Type</vs-th>
+      <vs-th sort-key="id">Status</vs-th>
+       <vs-th sort-key="id">Quotation Deadline</vs-th>
+       <vs-th sort-key="id">Product Deadline</vs-th>
     </template>
     <template slot-scope="{data}">
       <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
@@ -35,19 +34,20 @@
         <vs-td :data="data[indextr].contactperson">
           {{ data[indextr].contactperson }}
         </vs-td>
-        <vs-td :data="data[indextr].contactnumber">
-          {{ data[indextr].contactnumber }}
-        </vs-td>
-          <vs-td :data="data[indextr].Servicetype">
-          {{ data[indextr].Servicetype }}
-        
+         <vs-td :data="data[indextr].status">
+          {{ data[indextr].status }}
+          <vs-chip color="lightblue" >Wait for Quotation</vs-chip>
         </vs-td>
          
-          <vs-td :data="data[indextr].Registerdate">
-          {{ data[indextr].Registerdate }}
-        <vs-button type="line"  @click="$router.push('/import-export/export')">Product</vs-button>
+         <vs-td :data="data[indextr].status">
+          {{ data[indextr].status }}
+          <vs-chip color="orange" >14 days left</vs-chip>
         </vs-td>
-         
+         <vs-td :data="data[indextr].status">
+          {{ data[indextr].status }}
+          <vs-chip color="        #FFB300" >10 days left</vs-chip>
+        </vs-td>
+          <vs-button type="line" @click="$router.push('/forms/form-elements/select/projectdetail')">Details</vs-button>
       </vs-tr>
     </template>
   </vs-table>
@@ -56,18 +56,18 @@
       <vs-tab label="History">
         <div> <vs-table   pagination max-items="7" search :data="users">
 
-     <template slot="thead">
-     <vs-th sort-key="email">ID</vs-th>
+      <template slot="thead">
+       <vs-th sort-key="email">No</vs-th>
       <vs-th sort-key="username">Project name</vs-th>
       <vs-th sort-key="website">Customer name</vs-th>
-      <vs-th sort-key="id">Contact Person</vs-th>
-      <vs-th sort-key="id">Contact Number</vs-th>
-       <vs-th sort-key="id">Service Type</vs-th>
-       <vs-th sort-key="id">Register date</vs-th>
+      <vs-th sort-key="id">Service Type</vs-th>
+      <vs-th sort-key="id">Status</vs-th>
+       <vs-th sort-key="id">Quotation Deadline</vs-th>
+       <vs-th sort-key="id">Product Deadline</vs-th>
     </template>
     <template slot-scope="{data}">
       <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
-  <vs-td :data="data[indextr].id">
+        <vs-td :data="data[indextr].id">
           {{ data[indextr].id }}
         </vs-td>
          <vs-td :data="data[indextr].projectname">
@@ -81,20 +81,20 @@
         <vs-td :data="data[indextr].contactperson">
           {{ data[indextr].contactperson }}
         </vs-td>
-        <vs-td :data="data[indextr].contactnumber">
-          {{ data[indextr].contactnumber }}
-        </vs-td>
-          <vs-td :data="data[indextr].Servicetype">
-          {{ data[indextr].Servicetype }}
-        
+         <vs-td :data="data[indextr].status">
+          {{ data[indextr].status }}
+          <vs-chip color="Green" >Project Finished</vs-chip>
         </vs-td>
          
-          <vs-td :data="data[indextr].Registerdate">
-          {{ data[indextr].Registerdate }}
-     
+         <vs-td :data="data[indextr].status">
+          {{ data[indextr].status }}
+          <vs-chip color="green" >deliveried</vs-chip>
         </vs-td>
-       <vs-chip color="#00E676">Done </vs-chip>
-          
+         <vs-td :data="data[indextr].status">
+          {{ data[indextr].status }}
+          <vs-chip color="  green" >deliveried</vs-chip>
+        </vs-td>
+                <vs-button type="line" @click="$router.push('/forms/form-elements/select/projectdetail')">Details</vs-button>
       </vs-tr>
     </template>
   </vs-table></div>
@@ -120,51 +120,51 @@ export default {
       ],
       users: [
          {
-          "id": "PJ-PM-210001",
+          "id": "1",
           "projectname": "Project A",
           "customername": "Bret",
-          "contactperson": "Mrx",
+          "contactperson": "Advertising",
           "contactnumber": "02055667788",
           "Servicetype": "Posm",
           "Registerdate":"25.12.2020",
         },
         {
-          "id": "PJ-EV-210002",
+          "id": "2",
           "projectname": "Project B",
           "customername": "Bret",
-          "contactperson": "Mrx",
+          "contactperson": "Advertising",
           "contactnumber": "02055667788",
           "Servicetype": "Posm",
           "Registerdate":"25.12.2020"
         },  {
-          "id": "PJ-EV-210001",
+          "id": "3",
           "projectname": "Project c",
           "customername": "Bret",
-          "contactperson": "Mrx",
+          "contactperson": "POSM",
           "contactnumber": "02055667788",
           "Servicetype": "Event",
           "Registerdate":"25.12.2020"
         },  {
-          "id": "PJ-EV-210002",
+          "id": "4",
           "projectname": "Project D",
           "customername": "Bret",
-          "contactperson": "kinimosawa",
+          "contactperson": "Event",
           "contactnumber": "02055667788",
           "Servicetype": "Event",
           "Registerdate":"25.12.2020"
         },  {
-          "id": "PJ-AD-210001",
+          "id": "5",
           "projectname": "Project E",
           "customername": "Bret",
-          "contactperson": "Mrx",
+          "contactperson": "Event",
           "contactnumber": "02055667788",
           "Servicetype": "Advertising",
           "Registerdate":"25.12.2020"
         },  {
-          "id": "PJ-AD-210002",
+          "id": "6",
           "projectname": "Project F",
           "customername": "Bret",
-          "contactperson": "Mrx",
+          "contactperson": "Traditional",
           "contactnumber": "02055667788",
           "Servicetype": "Advertising",
           "Registerdate":"25.12.2020"

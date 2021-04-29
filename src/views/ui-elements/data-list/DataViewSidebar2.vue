@@ -7,6 +7,8 @@
     <vs-divider class="mb-0"></vs-divider>
     <component :is="scrollbarTag" class="scroll-area--data-list-add-new" :settings="settings" :key="$vs.rtl">
 
+
+
         <vs-input label="Supplier 1" v-model="dataSupplier1" class="mt-5 w-auto" name="item-supplier1" v-validate="'required'"  />
         <span class="text-danger text-sm " v-show="errors.has('item-supplier1')">{{ errors.first('item-supplier1') }}</span>
 
@@ -26,11 +28,18 @@
 
         <vs-textarea height="150px" label="Reason Supplier 3" v-model="dataResonSupplier3" class="mt-5 w-auto" name="item-Resonsupplier3" v-validate="'required'"  />
         <span class="text-danger text-sm " v-show="errors.has('item-Resonsupplier3')">{{ errors.first('item-Resonsupplier3') }}</span>
+
     </component>
+
+
+
     <div class="flex flex-wrap items-center justify-end p-6" slot="footer">
       <vs-button text-color="#ffffff" class="mr-6" @click="submitData" :disabled="!isFormValid">Submit</vs-button>
       <vs-button type="border" color="danger" @click="isSidebarActiveLocal = false">Cancel</vs-button>
     </div>
+
+
+
   </vs-sidebar>
 </template>
 
@@ -130,7 +139,7 @@ export default {
     },
     scrollbarTag () { return this.$store.getters.scrollbarTag }
   },
-  methods: {
+  methods: { 
     initValues () {
       if (this.data.id) return
       this.dataId = null

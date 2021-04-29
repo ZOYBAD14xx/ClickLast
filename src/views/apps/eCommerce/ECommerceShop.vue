@@ -1,210 +1,156 @@
-
 <template>
-<vx-card title="Rating" class="overflow-auto h-13">
 
-<div class="flex mb-4">
-<div class="w-1/2 bg-grid-color-secondary h-12 mx-5" >
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
+ <div>
+  <div class="mt-5">
 
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" text-color="#ffffff" color="primary">Details</vs-button>
-        </div>
-        <div class="demo-alignment">
-            <vs-popup title="Details" :active.sync="popupActive1">
+        <div><div>
 
-    <vx-card title="Account" class="mb-base">
+      <vs-table pagination max-items="7" search :data="users">
 
-        <div class="vx-row">
+              <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
-          <!-- Avatar Col -->
-          <div class="vx-col" id="avatar-col">
-            <div class="img-container ">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/768px-Circle-icons-profile.svg.png" height="300" />
-            </div>
+        <div class="flex flex-wrap-reverse items-center">
+
+          <!-- ADD NEW -->
+          <div class="p-3 mb-4 mr-4 rounded-lg cursor-pointer text-lg font-medium text-base text-primary border border-solid border-primary">
+              <feather-icon icon="PlusIcon" svgClasses="h-4 w-4" />
+              <span class="ml-2 text-base text-primary"  @click="$router.push('/forms/form-elements/select/supplierlistAdd')">Add New</span>
           </div>
-
-          <div class="vx-col flex-2 mt-20" >
-            <table>
-              <tr>
-                <td class="font-semibold">Username: </td>
-                <td> KKKK123</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Name:</td>
-                <td>ggg123</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Email:</td>
-                <td>dddd@gmail.com</td>
-              </tr>
-            </table>
-          </div>
-          <div class="vx-col flex-2 mt-20" id="account-info-col-2">
-            <table>
-              <tr>
-                <td class="font-semibold">Status:</td>
-                <td>Supplier</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Role:</td>
-                <td>sss</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Company:</td>
-                <td>lllo</td>
-              </tr>
-            </table>
-          </div>
-       </div>
-      </vx-card>
-            </vs-popup>
         </div>
-
-</vx-card>
-</div>
-<div class="w-1/2 bg-grid-color-secondary h-350 mx-5">
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" text-color="#ffffff" color="primary">Details</vs-button>
-        </div>
-
-</vx-card>
-</div>
-
-</div>
-
-<div class="flex mb-4">
-<div class="w-1/2 bg-grid-color-secondary h-12 mx-5" >
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" text-color="#ffffff" color="primary">Details</vs-button>
         </div>
 
 
+    <template slot="thead">
+      <vs-th sort-key="name">COMPANY NAME</vs-th>
+      <vs-th sort-key="address">ADDRESS</vs-th>
+      <vs-th sort-key="tel">COMPANY TEL</vs-th>
+      <vs-th sort-key="contact">CONTACT PERSON</vs-th>
+      <vs-th sort-key="position">POSITION</vs-th>
+      <vs-th sort-key="phone">CONTACT NUMBER</vs-th>
+      <vs-th sort-key="website">WEBSITE</vs-th>
+      <vs-th sort-key="rating">AVG RATING</vs-th>
+      <vs-th sort-key="status">STATUS</vs-th>
 
-</vx-card>
-</div>
-<div class="w-1/2 bg-grid-color-secondary h-350 mx-5">
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
+    </template>
+    <template slot-scope="{data}">
+      <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
 
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true"  color="primary" text-color="#ffffff">Details</vs-button>
-        </div>
+        <vs-td :data="data[indextr].name">
+          {{ data[indextr].name }}
+        </vs-td>
+         <vs-td :data="data[indextr].address">
+          {{ data[indextr].address }}
+        </vs-td>
+        <vs-td :data="data[indextr].tel">
+          {{ data[indextr].tel }}
+        </vs-td>
+        <vs-td :data="data[indextr].contact">
+          {{ data[indextr].contact }}
+        </vs-td>
 
-</vx-card>
-</div>
+        <vs-td :data="data[indextr].position">
+          {{ data[indextr].position }}
+        </vs-td>
 
-</div>
-<div class="flex mb-4">
-<div class="w-1/2 bg-grid-color-secondary h-12 mx-5" >
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
+        <vs-td :data="data[indextr].phone">
+          {{ data[indextr].phone }}
+        </vs-td>
+        <vs-td :data="data[indextr].website">
+          {{ data[indextr].website }}
+        </vs-td>
+        <vs-td :data="data[indextr].rating">
+          <star-rating :rtl="$vs.rtl" :inline="true" :star-size="20" :read-only="true" :show-rating="false" :rating="4"></star-rating>
+        </vs-td>
 
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" text-color="#ffffff" color="primary">Details</vs-button>
-        </div>
-
+          <vs-td :data="data[indextr].status">
+           <feather-icon icon="MenuIcon" svgClasses="w-10 h-5 hover:text-primary stroke-current" @click="$router.push('/forms/form-elements/select/supplierlist')" />
+        </vs-td>
 
 
-</vx-card>
-</div>
-<div class="w-1/2 bg-grid-color-secondary h-350 mx-5">
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" text-color="#ffffff" color="primary">Details</vs-button>
-        </div>
-
-</vx-card>
-</div>
-
-</div>
-<div class="flex justify-end mt-10">
-        <vs-button class="mx-5" text-color="#ffffff" @click="$router.push('/apps/eCommerce/wish-list')" type="filled">Add new</vs-button>
+      </vs-tr>
+    </template>
+  </vs-table>
+   </div></div>
   </div>
- </vx-card>
-</template>
+ </div>
+ </template>
 
 <script>
 import StarRating from 'vue-star-rating'
-import VxCard from '../../../components/vx-card/VxCard.vue'
 
 export default {
-  methods: {
-
-  },
-  data () {
+  data() {
     return {
-            popupActive1: false
+      selected: [],
+      'tableList': [
+        'vs-th: Component',
+        'vs-tr: Component',
+        'vs-td: Component',
+        'thread: Slot',
+        'tbody: Slot',
+        'header: Slot'
+      ],
+      users: [
+      {
+        name:'Click',
+        address:'VT, Laos',
+        contact:'02055252525',
+        position:'Leader',
+        tel:'5565565',
+        fax:'001001101',
+        phone:'25254452',
+        website:'www.click.la',
+        status:'',
+      },
+       {
+        name:'Click2',
+        address:'VT, Laos',
+        contact:'02055252525',
+        position:'Leader',
+        tel:'5565565',
+        fax:'001001101',
+        phone:'25254452',
+        website:'www.click.la',
+        status:'',
+      },
+       {
+        name:'Click3',
+        address:'VT, Laos',
+        contact:'02055252525',
+        position:'Leader',
+        tel:'5565565',
+        fax:'001001101',
+        phone:'25254452',
+        website:'www.click.la',
+        status:'',
+      },
+       {
+        name:'Click4',
+        address:'VT, Laos',
+        contact:'02055252525',
+        position:'Leader',
+        tel:'5565565',
+        fax:'001001101',
+        phone:'25254452',
+        website:'www.click.la',
+        status:'',
+      },
+       {
+        name:'Click5',
+        address:'VT, Laos',
+        contact:'02055252525',
+        position:'Leader',
+        tel:'5565565',
+        fax:'001001101',
+        phone:'25254452',
+        website:'www.click.la',
+        status:'',
+      },
+      ],
     }
   },
   components: {
-    StarRating,
-    VxCard
+    StarRating
   }
 }
 </script>
-
-<style lang="scss">
-
-  table {
-    td {
-      vertical-align: top;
-      min-width: 140px;
-      padding-bottom: .8rem;
-      word-break: break-all;
-    }
-
-    &:not(.permissions-table) {
-      td {
-        @media screen and (max-width:370px) {
-          display: block;
-        }
-      }
-    }
-  }
-
-</style>

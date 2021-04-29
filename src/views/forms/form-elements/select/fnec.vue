@@ -190,11 +190,7 @@
         <vs-button     text-color="#ffffff" @click="$router.go(-1)" type="filled">Back</vs-button>
       </vs-col>
       <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="6">
-        <vs-button    text-color="#ffffff"
-          @click="$router.push('/forms/form-elements/select/fnec')"
-          type="filled"
-          >Submit to CFO</vs-button
-        >
+      <vs-button     text-color="#ffffff" @click="$router.go(-2)" type="filled">Submit to Finance</vs-button>
       </vs-col>
     </vs-row>
   </div>

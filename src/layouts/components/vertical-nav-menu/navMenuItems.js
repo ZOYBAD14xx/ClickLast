@@ -125,13 +125,13 @@ export default [
                         slug: 'grid-vuesax',
                         i18n: 'Dashboard'
                     },
+                    // {
+                    //     url: '/forms/form-elements/select/artapprove',
+                    //     name: 'artapprove',
+                    //     i18n: 'Artwork Approve'
+                    // },
                     {
-                        url: '/forms/form-elements/select/artapprove',
-                        name: 'artapprove',
-                        i18n: 'Artwork Approve'
-                    },
-                    {
-                        url: '/forms/form-elements/select/Projectfiapprove',
+                        url: '/forms/form-elements/select/fiapprove',
                         name: 'financeapprove',
                         i18n: 'Finance Approve'
                     }
@@ -150,11 +150,13 @@ export default [
                         i18n: 'Projects'
                     },
                     {
-                        url: '/extensions/access-control',
-                        name: 'Access Control',
-                        slug: 'extra-component-access-control',
-                        i18n: 'Sale/marketing manager'
+                        url:   '/apps/todo',
+                        name: 'Clipboard',
+                        icon: 'CopyIcon',
+                        slug: 'extra-component-clipboard',
+                        i18n: 'Workingstepplan'
                     },
+                   
                     {
                         url: '/ui-elements/colors',
                         name: 'minute of meeting',
@@ -163,9 +165,9 @@ export default [
                         i18n: 'customer List'
                     },
                     {
-                        url: '/apps/todo',
-                        name: 'Todo',
-                        slug: 'todo',
+                        url: '/forms/form-elements/select/customerrequire',
+                        name: 'cus',
+                        slug: 'cus',
                         icon: 'CheckSquareIcon',
                         i18n: 'Customer Requirement'
                     },
@@ -223,6 +225,20 @@ export default [
                         slug: 'component-loading',
                         i18n: 'Project'
                     },
+                    // {
+                    //     url:  '/apps/todo',
+                    //     name: 'Clipboard',
+                    //     icon: 'CopyIcon',
+                    //     slug: 'extra-component-clipboard',
+                    //     i18n: 'Workingstepplan'
+                    // },
+                    {
+                        url:  '/apps/todo',
+                        name: 'Clipboard',
+                        icon: 'CopyIcon',
+                        slug: 'extra-component-clipboard',
+                        i18n: 'Workingstepplan'
+                    },
                     {
                         url: '/extensions/clipboard',
                         name: 'Clipboard',
@@ -272,11 +288,18 @@ export default [
                         i18n: 'Project'
                     },
                     {
-                        url: '/forms/form-elements/select/brieform',
-                        name: 'Brief form',
-                        slug: 'component-drop-down',
-                        i18n: 'Brief form'
+                        url:  '/apps/todo',
+                        name: 'Clipboard',
+                        icon: 'CopyIcon',
+                        slug: 'extra-component-clipboard',
+                        i18n: 'Workingstepplan'
                     },
+                    // {
+                    //     url: '/forms/form-elements/select/brieform',
+                    //     name: 'Brief form',
+                    //     slug: 'component-drop-down',
+                    //     i18n: 'Brief form'
+                    // },
                     {
                         url: '/components/tabs',
                         name: 'Tabs',
@@ -296,37 +319,37 @@ export default [
                         slug: 'component-avatar',
                         i18n: 'Supplier Contract'
                     },
-                    {
-                        url: '/components/breadcrumb',
-                        name: 'Breadcrumb',
-                        slug: 'component-breadcrumb',
-                        i18n: 'Purchase Order'
-                    },
+                    // {
+                    //     url: '/components/breadcrumb',
+                    //     name: 'Breadcrumb',
+                    //     slug: 'component-breadcrumb',
+                    //     i18n: 'Purchase Order'
+                    // },
                     // {
                     //     url: '/components/button',
                     //     name: 'Button',
                     //     slug: 'component-button',
                     //     i18n: 'Product'
                     // },
-                    {
-                        url: '/forms/form-elements/select/deliveryproduct',
-                        name: 'Button Group',
-                        slug: 'component-button-group',
-                        i18n: 'Delivery Products'
-                    }
+                    // {
+                    //     url: '/forms/form-elements/select/deliveryproduct',
+                    //     name: 'Button Group',
+                    //     slug: 'component-button-group',
+                    //     i18n: 'Delivery Products'
+                    // }
                     // {
                     //   url: '/components/chip',
                     //   name: 'Chip',
                     //   slug: 'component-chip',
                     //   i18n: 'Chip'
                     // },
-                    ,
-                    {
-                        url: '/components/collapse',
-                        name: 'Collapse',
-                        slug: 'component-collapse',
-                        i18n: 'Product Requests'
-                    },
+                    
+                    // {
+                    //     url: '/components/collapse',
+                    //     name: 'Collapse',
+                    //     slug: 'component-collapse',
+                    //     i18n: 'Product Requests'
+                    // },
                     // {
                     //   url: '/components/dialogs',
                     //   name: 'Dialogs',
@@ -441,6 +464,17 @@ export default [
                     slug: 'component-button-group',
                     i18n: 'Create invoice'
                 }]
+            },
+            {
+                url: null,
+                name: 'admin',
+                icon: 'Folder',
+                i18n: 'Admin',
+                submenu: [{
+                    url: '/forms/form-elements/select/admin',
+                    slug: 'ecommerce-shop',
+                    i18n: 'Plan'
+                }, ]
             }
         ]
     },

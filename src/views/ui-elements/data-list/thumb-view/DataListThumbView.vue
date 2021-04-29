@@ -134,8 +134,7 @@
             </vs-td>
 
             <vs-td class="whitespace-no-wrap">
-              <feather-icon icon="MenuIcon" svgClasses="w-10 h-5 hover:text-primary stroke-current" @click="$router.push('/design/artwork/details')" />
-              <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" @click.stop="editData(tr)" />
+              <feather-icon icon="MenuIcon" svgClasses="w-10 h-5 hover:text-primary stroke-current" @click="$router.push('/Design/ARD/APD')" />
               <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click.stop="deleteData(tr.id)"/>
             </vs-td>
           </vs-tr>

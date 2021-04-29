@@ -60,6 +60,13 @@
 
 <div class="flex mb-4 mt-10 mx-10">
         <!-- CATEGORY -->
+  <div class="w-1/3 bg-grid-color-secondary h-12">
+
+        <vs-select v-model="dataCategory" label="Category" class="mt-5 w-500" name="item-category" v-validate="'required'" >
+          <vs-select-item :key="item.value" :value="item.value" :text="item.text" v-for="item in category_choices"  />
+        </vs-select>
+        <span class="text-danger text-sm " v-show="errors.has('item-category')">{{ errors.first('item-category') }}</span>
+</div>
           <!-- ORDER STATUS -->
             <div class="w-1/3 bg-grid-color h-12">
 
@@ -68,6 +75,18 @@
         </vs-select>
         </div>
                <!-- PRICE -->
+                 <div class="w-1/3 bg-grid-color-secondary h-12">
+
+        <vs-input
+          icon-pack="feather"
+          icon="icon-dollar-sign"
+          label="Price"
+          v-model="dataPrice"
+          class="mt-5 w-500"
+          v-validate="{ required: true, regex: /\d+(\.\d+)?$/ }"
+          name="item-price" />
+        <span class="text-danger text-sm" v-show="errors.has('item-price')">{{ errors.first('item-price') }}</span>
+</div>
 </div>
       </div>
        <div class=" upload mt-10 mx-10">
@@ -76,7 +95,7 @@
     </component>
 
     <div class="flex flex-wrap items-center justify-end p-6" slot="footer">
-      <vs-button text-color="#ffffff" class="mr-6" @click="submitData" :disabled="!isFormValid">Done</vs-button>
+      <vs-button text-color="#ffffff" class="mr-6" @click="submitData" :disabled="!isFormValid">Submit</vs-button>
       <vs-button type="border" color="danger" @click="isSidebarActiveLocal = false">Cancel</vs-button>
     </div>
   </vs-sidebar>

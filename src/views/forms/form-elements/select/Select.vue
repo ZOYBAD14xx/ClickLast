@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <vs-table pagination max-items="7" search :data="users">
+    <vs-table pagination max-items="7" multiple v-model="selected" search :data="users">
       <template slot="thead">
         <vs-th sort-key="email">ID</vs-th>
         <vs-th sort-key="username">Product list</vs-th>

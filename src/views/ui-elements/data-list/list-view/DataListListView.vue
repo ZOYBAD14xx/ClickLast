@@ -7,29 +7,46 @@
     <vs-tabs alignment="fixed">
       <vs-tab label="Request artwork">
         <br>
-  <div id="data-list-thumb-view" class="data-list-container">
+  <div id="data-list-list-view" class="data-list-container">
 
     <data-view-sidebar :isSidebarActive="addNewDataSidebar" @closeSidebar="toggleDataSidebar" :data="sidebarData" />
 
-    <vs-table ref="table" v-model="selected" pagination :max-items="itemsPerPage" search :data="products">
+    <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="products">
 
       <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
+        <div class="flex flex-wrap-reverse items-center">
+
+          <!-- ADD NEW -->
+          <div class="p-3 mb-4 mr-4 rounded-lg cursor-pointer text-lg font-medium text-base text-primary border border-solid border-primary" @click="addNewData">
+              <feather-icon icon="PlusIcon" svgClasses="h-4 w-4" />
+              <span class="ml-2 text-base text-primary">Add New</span>
+          </div>
+        </div>
       </div>
+
       <template slot="thead">
+        <vs-th>Image</vs-th>
         <vs-th sort-key="name">Name</vs-th>
         <vs-th sort-key="material">Material</vs-th>
         <vs-th sort-key="size">Size</vs-th>
         <vs-th sort-key="color">Color</vs-th>
         <vs-th sort-key="color_code">Color code</vs-th>
         <vs-th sort-key="other">Other</vs-th>
+
+        <vs-th sort-key="category">Category</vs-th>
         <vs-th sort-key="order_status">Order Status</vs-th>
+        <vs-th sort-key="price">Price</vs-th>
         <vs-th>Action</vs-th>
       </template>
 
       <template slot-scope="{data}">
         <tbody>
           <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
+
+            <vs-td class="img-container">
+              <img :src="tr.img" class="product-img" />
+            </vs-td>
 
             <vs-td>
               <p class="product-name font-medium truncate">{{ tr.name }}</p>
@@ -56,14 +73,92 @@
             </vs-td>
 
             <vs-td>
+              <p class="product-category">{{ tr.category }}</p>
+            </vs-td>
+            <vs-td>
               <vs-chip :color="getOrderStatusColor(tr.order_status)" class="product-order-status">{{ tr.order_status | title }}</vs-chip>
             </vs-td>
-             <vs-td class="whitespace-no-wrap">
-              <feather-icon icon="MenuIcon" svgClasses="w-10 h-5 hover:text-primary stroke-current" @click="$router.push('/cfo/APD')" />
+
+            <vs-td>
+              <p class="product-price">${{ tr.price }}</p>
+            </vs-td>
+
+            <vs-td class="whitespace-no-wrap">
+              <feather-icon icon="MenuIcon" svgClasses="w-10 h-5 hover:text-primary stroke-current" @click.stop="popupActive=true" />
+              <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" @click.stop="deleteData(tr.id)"/>
             </vs-td>
           </vs-tr>
         </tbody>
 
+            <div class="demo-alignment">
+            <vs-popup fullscreen title="Details" :active.sync="popupActive">
+      <div class="p-6">
+          <div class="img-container w-64 mx-auto flex items-center justify-center">
+            <img :src="data[1].img" alt="img" class="responsive">
+          </div>
+
+  <div class="flex mt-10">
+
+     <div class="w-1/6 bg-grid-color-secondary h-12">
+     <h3>Name:</h3>
+        <vs-input v-text="data[1].name" class="mt-5 w-500" name="item-name"  />
+    </div>
+
+  <div class="w-1/6 bg-grid-color h-12">
+  <h3>Material:</h3>
+        <vs-input v-text="data[1].material" class="mt-5 w-500" name="item-material" v-validate="'required'"  />
+</div>
+
+  <div class="w-1/6 bg-grid-color-secondary h-12">
+          <h3>Size:</h3>
+
+        <vs-input label="Size" v-text="data[1].size" class="mt-5 w-500" name="item-size" v-validate="'required'"  />
+</div>
+  <div class="w-1/6 bg-grid-color h-12">
+          <h3>Color:</h3>
+
+        <vs-input label="Color" v-text="data[1].color" class="mt-5 w-500" name="item-color" v-validate="'required'"  />
+</div>
+  <div class="w-1/6 bg-grid-color-secondary h-12">
+  <h3>Color code:</h3>
+
+        <vs-input label="Color code" v-text="data[1].color_code" class="mt-5 w-500" name="item-color_code" v-validate="'required'"  />
+</div>
+  <div class="w-1/6 bg-grid-color h-12">
+  <h3>Other:</h3>
+        <vs-input label="Other" v-text="data[1].other" class="mt-5 w-500" name="item-other" v-validate="'required'"  />
+</div>
+
+</div>
+
+
+<div class="flex mb-4 mt-10">
+  <div class="w-1/3 bg-grid-color-secondary h-12">
+          <h3>Category:</h3>
+
+        <vs-select v-text="data[1].category" label="Category" class="mt-5 w-500" name="item-category" v-validate="'required'" >
+          <vs-select-item :key="item.value" :value="item.value" :text="item.text" v-for="item in category_choices"  />
+        </vs-select>
+        <span class="text-danger text-sm " v-show="errors.has('item-category')">{{ errors.first('item-category') }}</span>
+</div>
+            <div class="w-1/3 bg-grid-color h-12">
+          <h3>Order status:</h3>
+
+        <vs-select v-text="data[1].order_status" label="Order Status" class="mt-5 w-500">
+          <vs-select-item :key="item.value" :value="item.value" :text="item.text" v-for="item in order_status_choices" />
+        </vs-select>
+        </div>
+       <div class="w-1/3 bg-grid-color-secondary h-12">
+      </div>
+  </div>
+
+</div>
+ <div class="modify-img flex items-center justify-center mt-10">
+            <vs-button class="mr-4" color="success" type="border">Approve</vs-button>
+            <vs-button type="border" color="danger">Cancle</vs-button>
+          </div>
+            </vs-popup>
+        </div>
       </template>
     </vs-table>
   </div>
@@ -76,29 +171,42 @@
 
     <data-view-sidebar :isSidebarActive="addNewDataSidebar" @closeSidebar="toggleDataSidebar" :data="sidebarData" />
 
-    <vs-table ref="table"  v-model="selected" pagination :max-items="itemsPerPage" search :data="products">
+    <vs-table ref="table" multiple v-model="selected" pagination :max-items="itemsPerPage" search :data="products">
 
       <div slot="header" class="flex flex-wrap-reverse items-center flex-grow justify-between">
 
         <div class="flex flex-wrap-reverse items-center">
 
+          <!-- ADD NEW -->
+          <div class="p-3 mb-4 mr-4 rounded-lg cursor-pointer text-lg font-medium text-base text-primary border border-solid border-primary" @click="addNewData">
+              <feather-icon icon="PlusIcon" svgClasses="h-4 w-4" />
+              <span class="ml-2 text-base text-primary">Add New</span>
+          </div>
         </div>
       </div>
 
       <template slot="thead">
+        <vs-th>Image</vs-th>
         <vs-th sort-key="name">Name</vs-th>
         <vs-th sort-key="material">Material</vs-th>
         <vs-th sort-key="size">Size</vs-th>
         <vs-th sort-key="color">Color</vs-th>
         <vs-th sort-key="color_code">Color code</vs-th>
         <vs-th sort-key="other">Other</vs-th>
+
+        <vs-th sort-key="category">Category</vs-th>
         <vs-th sort-key="order_statusAlready">Order Status</vs-th>
+        <vs-th sort-key="price">Price</vs-th>
         <vs-th>Action</vs-th>
       </template>
 
       <template slot-scope="{data}">
         <tbody>
           <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
+
+            <vs-td class="img-container">
+              <img :src="tr.img" class="product-img" />
+            </vs-td>
 
             <vs-td>
               <p class="product-name font-medium truncate">{{ tr.name }}</p>
@@ -125,12 +233,18 @@
             </vs-td>
 
             <vs-td>
+              <p class="product-category">{{ tr.category }}</p>
+            </vs-td>
+            <vs-td>
               <vs-chip :color="getOrderStatusColor(tr.order_statusAlready)" class="product-order-status">{{ tr.order_statusAlready | title }}</vs-chip>
             </vs-td>
 
+            <vs-td>
+              <p class="product-price">${{ tr.price }}</p>
+            </vs-td>
 
             <vs-td class="whitespace-no-wrap">
-              <feather-icon icon="MenuIcon" svgClasses="w-10 h-5 hover:text-primary stroke-current" @click="$router.push('/cfo/APD')" />
+              <feather-icon icon="MenuIcon" svgClasses="w-10 h-5 hover:text-primary stroke-current" @click.stop="popupActive=true" />
               <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-danger stroke-current" class="ml-2" @click="activeConfirm = true" @click.stop="deleteData(tr.id)" />
             </vs-td>
           </vs-tr>
@@ -286,7 +400,7 @@ export default {
             }
           }
           td.td-check{
-            padding: 0px !important;
+            padding: 20px !important;
           }
       }
     }

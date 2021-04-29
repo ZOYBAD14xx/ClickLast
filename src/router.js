@@ -56,7 +56,12 @@ const router = new Router({
                 {
                     path: '/apps/todo',
                     redirect: '/apps/todo/all',
-                    name: 'todo'
+                    name: 'todo',
+                    meta: {
+                        rule: 'editor',
+                               pageTitle: 'Working Step Plan',
+
+                    }
                 },
                 {
                     path: '/apps/todo/:filter',
@@ -242,16 +247,6 @@ const router = new Router({
                         rule: 'editor'
                     }
                 },
-
-                {
-                  path: '/forms/form-elements/select/Projectfiapprove',
-                  name: 'financeapprove',
-                  component: () =>
-                      import ('@/views/ui-elements/data-list/list-view/finaceProject.vue'),
-                  meta: {
-                      rule: 'editor'
-                  }
-              },
                 {
                     path: '/ui-elements/data-list/thumb-view',
                     name: 'data-list-thumb-view',
@@ -526,17 +521,13 @@ const router = new Router({
                     path: '/components/dropdown',
                     name: 'component-drop-down',
                     component: () =>
-                        import ('@/views/components/vuesax/dropdown/Dropdown.vue'),
+                        import ('@/views/components/vuesax/dropdown/brief.vue'),
                     meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'Components' },
-                            { title: 'Dropdown', active: true }
-                        ],
-                        pageTitle: 'Dropdown',
+
                         rule: 'editor'
                     }
                 },
+
                 {
                     path: '/components/list',
                     name: 'component-list',
@@ -753,30 +744,50 @@ const router = new Router({
                     }
                 },
                 {
-                  path: '/cfo/APD',
-                  name: 'APD',
-                  component: () =>
-                      import ('./views/forms/APD.vue'),
-                  meta: {
-                      pageTitle: '',
-                      rule: 'editor'
-                  }
-              },
+                    path: '/forms/form-elements/select/planpro',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/planpro.vue'),
+                    meta: {
+                        pageTitle: 'Working step plan',
+                        rule: 'editor'
+                    }
+                },
                 {
-                  path: '/Design/APD',
-                  name: 'APDD',
-                  component: () =>
-                      import ('./views/forms/APDD.vue'),
-                  meta: {
-                      pageTitle: '',
-                      rule: 'editor'
-                  }
-              },
+                    path: '/forms/form-elements/select/plansale',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/plansale.vue'),
+                    meta: {
+                        pageTitle: 'Working step plan',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/selectprojectquotation',
+                    name: 'Select project',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/selectprojectquotation.vue'),
+                    meta: {
+                        pageTitle: 'Select Project to Create Quotation',
+                        rule: 'editor'
+                    }
+                },
                 {
                     path: '',
                     name: 'form-estimation',
                     component: () =>
                         import ('./views/forms/form-elements/select/cfodashboard.vue'),
+                    meta: {
+
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/cfoapprove.vue'),
                     meta: {
 
                         rule: 'editor'
@@ -803,12 +814,112 @@ const router = new Router({
                     }
                 },
                 {
+                    path: '/forms/form-elements/select/external',
+                    name: 'supplierlist',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/external.vue'),
+                    meta: {
+                        pageTitle: 'Create External plan',
+                        rule: 'editor'
+                    }
+                },
+                {
                     path: '/forms/form-elements/select/payment',
                     name: 'form-estimation',
                     component: () =>
                         import ('./views/forms/form-elements/select/payment.vue'),
                     meta: {
                         pageTitle: 'Payment',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/selectproplan',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/selectproplan.vue'),
+                    meta: {
+                        pageTitle: 'Payment',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/projectdetailpro',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/projectdetailpro.vue'),
+                    meta: {
+                        pageTitle: 'Payment',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/proplancreate',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/proplancreate.vue'),
+                    meta: {
+                        pageTitle: 'Payment',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/fiana',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/fiana.vue'),
+                    meta: {
+                        pageTitle: 'Payment',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/cfo/APD',
+                    name: 'APD',
+                    component: () =>
+                        import ('./views/forms/APD.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+                },
+                  {
+                    path: '/Design/APD',
+                    name: 'APDD',
+                    component: () =>
+                        import ('./views/forms/APDD.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+
+                  },
+                {
+                    path: '/Design/ARD/APD',
+                    name: 'AlreadyAPPD',
+                    component: () =>
+                        import ('./views/forms/APDDalready.vue'),
+                    meta: {
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/supplierlistAdd',
+                    name: 'form-estimatiossn',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/supplierlistAdd.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/selectinv',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/selectinv.vue'),
+                    meta: {
+                        pageTitle: 'Select Invoice',
                         rule: 'editor'
                     }
                 },
@@ -824,6 +935,50 @@ const router = new Router({
                     }
                 },
                 {
+                    path: '/forms/form-elements/select/posub',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/posub.vue'),
+                    meta: {
+                        pageTitle: 'Purchase order to supplier',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/pocus',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/pocus.vue'),
+                    meta: {
+                        pageTitle: 'Purchase order from customer',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/createplan',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/createplan.vue'),
+                    meta: {
+                        pageTitle: 'Create plan',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/compare',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/compare.vue'),
+                    meta: {
+                        pageTitle: 'Upload Comparison form',
+                        rule: 'editor'
+                    }
+                },
+                {
                     path: '/forms/form-elements/select/createquotation',
 
                     name: 'delivery product',
@@ -835,6 +990,150 @@ const router = new Router({
                     }
                 },
                 {
+                    path: '/forms/form-elements/select/invoicecreate',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/invoicecreate.vue'),
+                    meta: {
+                        pageTitle: 'Select Quotation',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/printquotation',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/printquotation.vue'),
+                    meta: {
+                        pageTitle: 'Detail',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/bf',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/bf.vue'),
+                    meta: {
+                        pageTitle: 'Upload brief form',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/reqpaydetail',
+
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/reqpaydetail.vue'),
+                    meta: {
+                        pageTitle: 'Request payment detail',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/proreqpay',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/proreqpay.vue'),
+                    meta: {
+                        pageTitle: 'Request payment detail',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/workingstepplan',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/workingstepplan.vue'),
+                    meta: {
+                        pageTitle: 'Working Step plan',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/customerrequire',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/customerrequire.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/Posm',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/Posm.vue'),
+                    meta: {
+                        pageTitle: 'Posm',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/event',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/event.vue'),
+                    meta: {
+                        pageTitle: 'event',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/pdfposm',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/pdfposm.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/pdfevent',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/pdfevent.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/pdfAdvertising',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/pdfAdvertising.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/paymentinfo',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/paymentinfo.vue'),
+                    meta: {
+                        pageTitle: '',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/Advertising',
+                    name: 'delivery product',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/Advertising.vue'),
+                    meta: {
+                        pageTitle: 'event',
+                        rule: 'editor'
+                    }
+                },
+                {
                     path: '/forms/form-elements/select/createreqpay',
 
                     name: 'reqpay',
@@ -842,6 +1141,38 @@ const router = new Router({
                         import ('./views/forms/form-elements/select/createreqpay.vue'),
                     meta: {
                         pageTitle: 'Create Request Payment',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/createreceipt',
+
+                    name: 'reqpay',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/createreceipt.vue'),
+                    meta: {
+                        pageTitle: 'Select Invoice',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/projectdetail',
+
+                    name: 'reqpay',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/projectdetail.vue'),
+                    meta: {
+                        pageTitle: 'Project Detail',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/admin',
+                    name: 'reqpay',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/admin.vue'),
+                    meta: {
+                        pageTitle: 'Plan',
                         rule: 'editor'
                     }
                 },
@@ -894,6 +1225,26 @@ const router = new Router({
                         import ('./views/forms/form-elements/select/deliveryproduct.vue'),
                     meta: {
                         pageTitle: 'Delivery product',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/deliverynote',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/deliverynote.vue'),
+                    meta: {
+                        pageTitle: 'Delivery Note',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/forms/form-elements/select/artappv',
+                    name: 'form-estimation',
+                    component: () =>
+                        import ('./views/forms/form-elements/select/artappv.vue'),
+                    meta: {
+                        pageTitle: 'Artwork',
                         rule: 'editor'
                     }
                 },
@@ -1415,7 +1766,7 @@ const router = new Router({
                     component: () =>
                         import ('@/views/components/extra-components/autocomplete/Autocomplete.vue'),
                     meta: {
-
+                        pageTitle: 'Receipt',
                         rule: 'editor'
                     }
                 },
@@ -1435,13 +1786,7 @@ const router = new Router({
                     component: () =>
                         import ('@/views/components/extra-components/import-export/Import.vue'),
                     meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'Extensions' },
-                            { title: 'Import/Export' },
-                            { title: 'Import', active: true }
-                        ],
-                        pageTitle: 'Import Excel',
+
                         rule: 'editor'
                     }
                 },
@@ -1451,13 +1796,7 @@ const router = new Router({
                     component: () =>
                         import ('@/views/components/extra-components/import-export/Export.vue'),
                     meta: {
-                        breadcrumb: [
-                            { title: 'Home', url: '/' },
-                            { title: 'Extensions' },
-                            { title: 'Import/Export' },
-                            { title: 'Export', active: true }
-                        ],
-                        pageTitle: 'Export Excel',
+
                         rule: 'editor'
                     }
                 },

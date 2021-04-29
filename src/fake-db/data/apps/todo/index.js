@@ -3,130 +3,54 @@ import mock from '@/fake-db/mock.js'
 // Contact
 const data = {
   tasks: [
+    
     {
-      'id': 10,
-      'title': 'Refactor Code',
-      'desc': 'Pie liquorice wafer cotton candy danish. Icing topping jelly-o halvah pastry lollipop.',
-      'isImportant': true,
-      'isStarred': false,
-      'tags': ['doc', 'backend'],
-      'isCompleted': false,
-      'isTrashed': false
-    },
-    {
-      'id': 11,
-      'title': 'Submit Report',
-      'desc': 'Donut tart toffee cake cookie gingerbread. Sesame snaps brownie sugar plum candy canes muffin cotton candy.',
-      'isImportant': false,
-      'isStarred': true,
-      'tags': ['frontend', 'doc'],
-      'isCompleted': false,
-      'isTrashed': false
-    },
-    {
-      'id': 15,
-      'title': 'Send PPT 🎁',
-      'desc': 'Dragée gummi bears tiramisu brownie cookie. Jelly beans pudding marzipan fruitcake muffin. Wafer gummi bears lollipop pudding lollipop biscuit.',
+      'id': 23,
+      'title': 'Meet Jane ❤️',
+      'desc': 'Meet her to get customer requirement',
       'isImportant': true,
       'isStarred': true,
-      'tags': ['backend', 'doc'],
-      'isCompleted': false,
-      'isTrashed': false
-    },
-    {
-      'id': 18,
-      'title': 'Skype Tommy',
-      'desc': 'Tart oat cake sesame snaps lollipop croissant cake biscuit.',
-      'isImportant': false,
-      'isStarred': false,
-      'tags': ['bug'],
+      'tags': ['Sale'],
       'isCompleted': true,
       'isTrashed': false
     },
     {
       'id': 20,
-      'title': 'Pick up Natasha 😁',
-      'desc': 'Sweet roll toffee dragée cotton candy jelly beans halvah gingerbread jelly-o. Ice cream bear claw sugar plum powder.',
+      'title': 'Quotation',
+      'desc': 'Wait for finace create quotation and sale send to customer',
       'isImportant': true,
       'isStarred': true,
-      'tags': [],
+      'tags': ["Sale", 'Finance', 'Procurement'],
       'isCompleted': false,
       'isTrashed': false
     },
-    {
-      'id': 23,
-      'title': 'Meet Jane ❤️',
-      'desc': 'Toffee sugar plum oat cake tiramisu tart bonbon gingerbread cheesecake cake. ',
-      'isImportant': true,
-      'isStarred': true,
-      'tags': ['frontend', 'backend', 'doc'],
-      'isCompleted': false,
-      'isTrashed': false
-    },
-    {
-      'id': 25,
-      'title': 'Promot Products',
-      'desc': 'Gummi bears bear claw cake tiramisu gummies tiramisu apple pie chocolate jujubes. ',
-      'isImportant': true,
-      'isStarred': false,
-      'tags': [],
-      'isCompleted': false,
-      'isTrashed': true
-    },
-    {
-      'id': 28,
-      'title': 'Fix Project',
-      'desc': 'Cookie fruitcake macaroon muffin apple pie chocolate bar toffee oat cake. Icing chocolate danish.',
-      'isImportant': false,
-      'isStarred': false,
-      'tags': ['backend'],
-      'isCompleted': false,
-      'isTrashed': true
-    },
-    {
-      'id': 29,
-      'title': 'Remove redundant files',
-      'desc': 'Brownie jelly beans tootsie roll brownie marshmallow. Sesame snaps halvah marzipan chocolate cake. Icing bear claw pie apple pie.',
-      'isImportant': false,
-      'isStarred': false,
-      'tags': [],
-      'isCompleted': true,
-      'isTrashed': true
-    },
-    {
-      'id': 33,
-      'title': 'Fix Responsiveness 💻',
-      'desc': 'Jelly topping toffee bear claw. Sesame snaps lollipop macaroon croissant cheesecake pastry cupcake.',
-      'isImportant': true,
-      'isStarred': false,
-      'tags': ['frontend'],
-      'isCompleted': false,
-      'isTrashed': false
-    }
+  
+    
+ 
   ],
   taskTags: [
     {
       id: 5,
-      text: 'Frontend',
-      value : 'frontend',
+      text: 'Sale',
+      value : 'Sale',
       color: 'primary'
     },
     {
       id: 7,
-      text: 'Backend',
-      value: 'backend',
+      text: 'Finance',
+      value: 'Finance',
       color: 'warning'
     },
     {
       id: 8,
-      text: 'Doc',
-      value: 'doc',
+      text: 'Procurement',
+      value: 'Procurement',
       color: 'success'
     },
     {
       id: 11,
-      text: 'Bug',
-      value: 'bug',
+      text: 'Design',
+      value: 'Design',
       color: 'danger'
     }
   ]

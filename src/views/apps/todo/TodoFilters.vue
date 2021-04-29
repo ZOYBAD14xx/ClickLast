@@ -1,29 +1,15 @@
-<!-- =========================================================================================
-    File Name: TodoAddNew.vue
-    Description: Add new todo component
-    ----------------------------------------------------------------------------------------
-    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
-
+ 
 
 <template>
     <div class="todo__filters-container">
 
         <!-- all -->
-        <div class="px-6 py-4">
-            <router-link tag="span" class="flex cursor-pointer" :class="{'text-primary': todoFilter == 'all'}" :to="`${baseUrl}/all`">
-                <feather-icon icon="LayersIcon" :svgClasses="[{'text-primary stroke-current': todoFilter == 'all'}, 'h-6 w-6']"></feather-icon>
-                <span class="text-lg ml-3">haha</span>
-            </router-link>
-        </div>
-
-        <vs-divider></vs-divider>
+       
+ 
 
         <!-- starred -->
         <div class="px-6 py-4">
-            <h5>Filters</h5>
+            
 
             <template v-for="filter in todoFilters">
                 <router-link tag="span" class="flex mt-6 cursor-pointer" :class="{'text-primary': todoFilter == filter.filter}" :to="`${baseUrl}/${filter.filter}`" :key="filter.filter">
@@ -55,10 +41,7 @@ export default{
   data () {
     return {
       todoFilters: [
-        { filterName: 'Starred', filter: 'starred', icon: 'StarIcon' },
-        { filterName: 'Important', filter: 'important', icon: 'InfoIcon' },
-        { filterName: 'Completed', filter: 'completed', icon: 'CheckIcon' },
-        { filterName: 'Trashed', filter: 'trashed', icon: 'TrashIcon' }
+         
       ]
     }
   },

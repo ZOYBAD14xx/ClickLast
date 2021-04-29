@@ -1,202 +1,195 @@
 <template>
-<vx-card title="Rating" class="overflow-auto h-13">
-
-<div class="flex mb-4">
-<div class="w-1/2 bg-grid-color-secondary h-12 mx-5" >
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" color="primary">Details</vs-button>
+  <body>
+    <div>
+      <vx-card title="Supplier details">
+        <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="VENDOR NAME PER BUSINESS LICENSE"
+              v-model="name"
+            />
+          </div>
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input class="w-full mt-4" label="ADDRESS" v-model="address" />
+          </div>
         </div>
-        <div class="demo-alignment">
-            <vs-popup title="Details" :active.sync="popupActive1">
+        <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="VENDOR CONTACT PERSON"
+              v-model="contact"
+            />
+          </div>
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input class="w-full mt-4" label="POSITION" v-model="position" />
+          </div>
+        </div>
+        <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input class="w-full mt-4" label="WEBSITE" v-model="website" />
+          </div>
+          <div class="vx-col sm:w-1/2 w-full mb-6">
+            <vs-input class="w-full mt-4" label="EMAIL" v-model="email" />
+          </div>
+        </div>
+      </vx-card>
+    </div>
 
-    <vx-card title="Account" class="mb-base">
+    <div class="mt-10">
+      <vx-card title="BANKING INFORMATION">
+        <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="Bank name"
+              v-model="bankname"
+            />
+          </div>
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input class="w-full mt-4" label="SWIFT Code" v-model="scode" />
+          </div>
+        </div>
 
         <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="BANK ACCOUNT CURRENCY"
+              v-model="bac"
+            />
+          </div>
+          <div></div>
+        </div>
 
-          <!-- Avatar Col -->
-          <div class="vx-col" id="avatar-col">
-            <div class="img-container ">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/768px-Circle-icons-profile.svg.png" height="300" />
+        <div class="my-10">
+          <h4>
+            For oversea supplier
+          </h4>
+        </div>
+
+        <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="Intermediary Bank Name"
+              v-model="ibn"
+            />
+          </div>
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="Intermediary Bank Name SWIFT Code"
+              v-model="ibns"
+            />
+          </div>
+        </div>
+        <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="Bank Account Number"
+              v-model="banum"
+            />
+          </div>
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input
+              class="w-full mt-4"
+              label="Bank Account Holder"
+              v-model="bah"
+            />
+          </div>
+        </div>
+
+        <div class="vx-row">
+          <div class="vx-col sm:w-1/2 w-full mb-2">
+            <vs-input class="w-full mt-4" label="IBAN Code" v-model="IBAN" />
+          </div>
+        </div>
+
+      </vx-card>
+    </div>
+<div class="mt-15">
+     <vx-card class="mt-10" title="Rating">
+          <div class="vx-row">
+            <div class="vx-col sm:w-1/2 w-full mb-2">
+              <h6>Your rating</h6>
+              <star-rating
+                :rtl="$vs.rtl"
+                :rating="4"
+                :round-start-rating="false"
+              ></star-rating>
+            </div>
+
+            <div class="vx-col sm:w-1/2 w-full mb-2">
+              <h6>Average rating</h6>
+              <star-rating
+                :rtl="$vs.rtl"
+                :rating="4"
+                :read-only="true"
+              ></star-rating>
             </div>
           </div>
-
-          <div class="vx-col flex-2 mt-20" >
-            <table>
-              <tr>
-                <td class="font-semibold">Username: </td>
-                <td> KKKK123</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Name:</td>
-                <td>ggg123</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Email:</td>
-                <td>dddd@gmail.com</td>
-              </tr>
-            </table>
+        </vx-card>
+</div>
+        <div class="mt-10">
+          <div class="flex justify-between">
+            <div>
+              <vs-button
+                text-color="#ffffff"
+                class="mr-3 mb-2"
+                @click="$router.go(-1)"
+                >back</vs-button
+              >
+            </div>
+            <div>
+    <vs-button color="success"  text-color="#ffffff"  @click="$router.push('/apps/eCommerce/shop')" > Done </vs-button>
+      </div>
           </div>
-          <div class="vx-col flex-2 mt-20" id="account-info-col-2">
-            <table>
-              <tr>
-                <td class="font-semibold">Status:</td>
-                <td>Supplier</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Role:</td>
-                <td>sss</td>
-              </tr>
-              <tr>
-                <td class="font-semibold">Company:</td>
-                <td>lllo</td>
-              </tr>
-            </table>
-          </div>
-       </div>
-      </vx-card>
-            </vs-popup>
         </div>
-</vx-card>
-</div>
-<div class="w-1/2 bg-grid-color-secondary h-350 mx-5">
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" color="primary">Details</vs-button>
-        </div>
-
-</vx-card>
-</div>
-
-</div>
-
-<div class="flex mb-4">
-<div class="w-1/2 bg-grid-color-secondary h-12 mx-5" >
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" color="primary">Details</vs-button>
-        </div>
-
-
-
-</vx-card>
-</div>
-<div class="w-1/2 bg-grid-color-secondary h-350 mx-5">
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" color="primary">Details</vs-button>
-        </div>
-
-</vx-card>
-</div>
-
-</div>
-<div class="flex mb-4">
-<div class="w-1/2 bg-grid-color-secondary h-12 mx-5" >
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" color="primary">Details</vs-button>
-        </div>
-
-
-
-</vx-card>
-</div>
-<div class="w-1/2 bg-grid-color-secondary h-350 mx-5">
-<vx-card class=""
-    title="User"
-    title-color="primary"
-    subtitle-color="warning"
-    subtitle="@click123">
-    <p class="mb-3">You can use <code>subtitle-color</code> prop to change color of subtitle of card. This prop supports hex, rgba, rgb and theme colors.</p>
-
-<div class="flex flex-wrap items-center justify-between">
-         <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating" :star-size="30"></star-rating>
-            <div class="font-semibold">{{rating}} </div>
-              <vs-button @click="popupActive1=true" color="primary">Details</vs-button>
-        </div>
-
-</vx-card>
-</div>
-
-</div>
- </vx-card>
+  </body>
 </template>
 
 <script>
+import StarRating from 'vue-star-rating'
+
 export default {
-  methods: {
-
+  components:{
+    StarRating
   },
-  data () {
+  data() {
     return {
-            popupActive1: false
-    }
-  },
-  components: {
-    StarRating,
-    VxCard
+      name: "Click",
+      address: "VT, LAOS",
+      contact: "02055252525",
+      position: "Leader",
+      tel: "0205565655",
+      phone: "0205552152",
+      website: "www.click.la",
+      email: "click@gmail.com",
+      bankname: "Null",
+      scode: "Null",
+      bac: "Null",
+      ibn: "Null",
+      ibns: "Null",
+      banum: "Null",
+      bah: "Null",
+      IBAN: "Null"
+    };
   }
-}
+};
 </script>
+<style></style>
 
-<style lang="scss">
 
-  table {
-    td {
-      vertical-align: top;
-      min-width: 140px;
-      padding-bottom: .8rem;
-      word-break: break-all;
-    }
 
-    &:not(.permissions-table) {
-      td {
-        @media screen and (max-width:370px) {
-          display: block;
-        }
-      }
-    }
-  }
 
-</style>
+
+
+
+
+
+
+
+
